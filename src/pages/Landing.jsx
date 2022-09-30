@@ -13,7 +13,7 @@ const Landing = () => {
             className="w-2/3 lg:w-full h-full lg:h-4/5"
           />
         </div>
-        <div className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-end text-center lg:text-right">
+        <div className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-end text-center lg:text-right space-y-5">
           <h1 className="text-3xl md:text-6xl font-bold text-primary-400">
             Imagine if <br />{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-200 to-primary-100">

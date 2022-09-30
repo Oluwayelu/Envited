@@ -1,6 +1,6 @@
-import "./App.css";
 import "./styles/tailwind.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import { FormProvider } from "context";
 import { Landing, Create, Event } from "pages";
 import { CREATE, EVENTS, LANDING } from "routes/CONSTANTS";

@@ -1,14 +1,19 @@
 import { Input } from "components";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { EVENTS } from "routes/CONSTANTS";
 import { FormContext } from "context";
 import { useContext } from "react";
 
 const Create = () => {
+  const navigate = useNavigate();
   const { details, setDetails } = useContext(FormContext);
   const handleChange = (e) => {
-    e.preventDefault();
     setDetails({ ...details, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    navigate(EVENTS);
   };
 
   return (
@@ -17,7 +22,7 @@ const Create = () => {
         Create Your Event
       </h1>
 
-      <form className="w-2/3 space-y-3">
+      <form onSubmit={onSubmit} className="w-2/3 space-y-3">
         <Input
           name="eventName"
           label="Event name"
@@ -55,8 +60,11 @@ const Create = () => {
           onChange={handleChange}
         />
 
-        <button className="w-1/3 px-5 py-2 text-white bg-gradient-to-r from-primary-200 to-primary-100 rounded">
-          <Link to={EVENTS}>Next</Link>
+        <button
+          type="submit"
+          className="w-1/3 px-5 py-2 text-white bg-gradient-to-r from-primary-200 to-primary-100 rounded"
+        >
+          Next
         </button>
       </form>
     </div>
