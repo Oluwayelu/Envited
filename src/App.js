@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "./styles/tailwind.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { FormProvider } from "context";
+import { Landing, Create, Event } from "pages";
+import { CREATE, EVENTS, LANDING } from "routes/CONSTANTS";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FormProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path={LANDING} element={<Landing />} />
+          <Route path={CREATE} element={<Create />} />
+          <Route path={EVENTS} element={<Event />} />
+        </Routes>
+      </BrowserRouter>
+    </FormProvider>
   );
 }
 
 export default App;
+
